@@ -1,0 +1,28 @@
+<main>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{ 'width': progressStatus }">
+      {{ progressStatus }}</div>
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+      [ngStyle]="{ 'width': progressStatusRemaining }">
+      Remaining Amount {{ remainingAmount }} $
+    </div>
+  </div>
+  <div class="image">
+    <img src="assets/images/donate.jpg" alt="" class="donate w-100">
+  </div>
+  <h1>Join {{ totalDonations }} other donors who have already supported this project. <br>
+    Every Dollar helps.</h1>
+  <div class="row donate-form">
+    <form id="test-form" class="mx-auto">
+      <div class="col-md-12">
+        <input type="text" name="amount" id="amount">
+        <input type="text" name="Country" value="{{clientCountry}}" hidden>
+        <input type="text" name="Time" value="{{time}}" hidden>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" (click)="donateButtonClick()" class="btn btn-primary w-100 my-2"
+          id="submit-form">Donate</button>
+      </div>
+    </form>
+  </div>
+</main>
