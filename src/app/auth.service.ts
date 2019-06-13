@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions, RequestMethod } from "@angular/http";
-import { map } from "rxjs/operators";
+import { HttpParams } from "@angular/common/http";
+import { map, count } from "rxjs/operators";
 @Injectable({
   providedIn: "root"
 })
@@ -33,10 +34,18 @@ export class AuthService {
     return this.http.get(this.googleSheetsURL).pipe(map(x => x.json()));
   }
 
-  // postData(donation) {
-  //   // To create new row with donation amount, country and time of donation
-  //   return this.http.get("${this.url}" + "?amount=" + donation);
-  // }
+  postData(donation, country, time) {
+    // To create new row with donation amount, country and time of donation
+    return this.http.get(
+      "https://script.google.com/macros/s/AKfycbxYt5n0O64M4rCrmKg36qhFmdVggWlGmwrn43Vr09IY5xCUQ3Y/exec?amount=" +
+        donation +
+        "&Country=" +
+        country +
+        "&Time=" +
+        time +
+        "&Total=0&donations=0"
+    );
+  }
 
   retrieveUserLocation() {
     // User/Client's residing country

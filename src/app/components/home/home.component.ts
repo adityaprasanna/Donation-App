@@ -14,16 +14,23 @@ export class HomeComponent implements OnInit {
   public totalDonations: number;
   public remainingAmount: number;
   public clientCountry: string;
-  public time: any;
+  public time: number;
 
   constructor(private authService: AuthService, private router: Router) {
+    // Get client's time of donating
+    this.getData();
+    const currentTime = new Date();
+    this.time = currentTime.getHours();
+  }
+
+  getData() {
     this.authService.getData().subscribe(data => {
       if (data) {
         this.totalAmount = data.feed.entry
           ? data.feed.entry[0].gsx$total.$t
           : 0;
         this.totalDonations = data.feed.entry
-          ? data.feed.entry[0].gsx$numberofdonations.$t
+          ? data.feed.entry[0].gsx$donations.$t
           : 0;
         this.remainingAmount = 1000 - this.totalAmount;
         const progress = this.totalAmount / 10;
@@ -39,10 +46,6 @@ export class HomeComponent implements OnInit {
   }
 
   donateButtonClick() {
-    // Get client's time of donating
-    const currentTime = new Date();
-    this.time = currentTime.getHours();
-
     // Check for invalid inputs or empty string
     let inputAmount = (<HTMLInputElement>document.getElementById("amount"))
       .value;
@@ -50,14 +53,9 @@ export class HomeComponent implements OnInit {
 
     if (this.totalAmount < 1000 && num.test(inputAmount) && inputAmount) {
       let $form = $("form#test-form");
-      $.ajax({
-        url:
-          "https://script.google.com/macros/s/AKfycbxYt5n0O64M4rCrmKg36qhFmdVggWlGmwrn43Vr09IY5xCUQ3Y/exec",
-        method: "GET",
-        dataType: "json",
-        data: $form.serialize()
-      });
-      // this.authService.postData(20);
+      this.authService
+        .postData(inputAmount, this.clientCountry, this.time)
+        .subscribe(function(data) {});
     } else {
       (<HTMLInputElement>(
         document.getElementById("submit-form")
