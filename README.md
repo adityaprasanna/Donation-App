@@ -11,7 +11,7 @@
 - Tested using VPN for different countries.
 
 ## Instructions to Run
-
+- Install Angular cli with 'npm install -g @angular/cli'
 - Navigate to directory with package.json and run 'npm i'
 - Now, run 'ng serve -o'
 - You should now see the project in your browser window running on port 4200
