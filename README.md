@@ -16,7 +16,7 @@
 - Now, run 'ng serve -o'
 - You should now see the project in your browser window running on port 4200
 - Enter donation amount and click 'donate'
-- Currently must refresh to see updated progress bar and redirect to base URL to make another donation (only on localhost, not required on deployment server)
+- Currently must refresh to see updated progress bar (only on localhost, not required on deployment server)
 
 ## Link to google sheets
 
