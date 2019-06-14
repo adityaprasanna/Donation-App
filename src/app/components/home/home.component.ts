@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
     if (this.totalAmount < 1000 && num.test(inputAmount) && inputAmount) {
       this.authService
         .addNewRow(inputAmount, this.clientCountry, this.time)
-        .subscribe(function(data) {});
+        .subscribe();
     } else {
       (<HTMLInputElement>(
         document.getElementById("submit-form")
