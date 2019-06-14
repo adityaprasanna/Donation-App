@@ -1,26 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 * .progress {
-  height: 50px !important;
+  height: 7vh !important;
 }
 
-* .image img {
-  position: absolute;
-  z-index: 1;
-  height: 96vh;
+* .content {
+  background: url("../../../assets/images/donate.jpg") no-repeat center;
+  background-size: cover;
+  height: 93vh;
 }
 
-* h1 {
+* .content h1 {
   font-family: 'Roboto', sans-serif;
   text-align: center;
-  position: relative;
   color: #fff;
-  z-index: 2;
-  margin-top: 20%;
 }
 
-* .donate-form {
-  position: relative;
-  z-index: 2;
-  margin-top: 5%;
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  * h1 {
+    font-size: 30px;
+    padding: 0 50px;
+  }
 }
 /*# sourceMappingURL=home.component.css.map */

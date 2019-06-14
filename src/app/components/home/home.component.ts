@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/auth.service";
 import { Router } from "@angular/router";
-declare var $: any;
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",

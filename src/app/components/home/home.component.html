@@ -7,22 +7,21 @@
       Remaining Amount {{ (remainingAmount) }} $
     </div>
   </div>
-  <div class="image">
-    <img src="assets/images/donate.jpg" alt="" class="donate w-100">
-  </div>
-  <h1>Join {{ totalDonations }} other donors who have already supported this project. <br>
-    Every Dollar helps.</h1>
-  <div class="row donate-form">
-    <form id="test-form" class="mx-auto">
-      <div class="col-md-12">
-        <input type="text" name="amount" id="amount" class="form-control">
-        <input type="text" name="Country" value="{{clientCountry}}" hidden>
-        <input type="text" name="Time" value="{{time}}" hidden>
+  <div class="container-fluid">
+    <div class="row text-center content">
+      <div class="col-md-12 text-center my-auto">
+        <h1>Join {{ totalDonations }} other donors who have already supported this project. <br>
+          Every Dollar helps.</h1>
+        <form id="test-form">
+          <div class="col-md-2 col-8 mx-auto">
+            <input type="text" name="amount" id="amount" class="form-control">
+            <input type="text" name="Country" value="{{clientCountry}}" hidden>
+            <input type="text" name="Time" value="{{time}}" hidden>
+            <button type="submit" (click)="donateButtonClick()" class="btn btn-primary w-100 my-2"
+              id="submit-form">Donate</button>
+          </div>
+        </form>
       </div>
-      <div class="col-md-12">
-        <button type="submit" (click)="donateButtonClick()" class="btn btn-primary w-100 my-2"
-          id="submit-form">Donate</button>
-      </div>
-    </form>
+    </div>
   </div>
 </main>
