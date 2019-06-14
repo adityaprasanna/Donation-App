@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Http, Headers, RequestOptions, RequestMethod } from "@angular/http";
-import { HttpParams } from "@angular/common/http";
-import { map, count } from "rxjs/operators";
+import { Http } from "@angular/http";
+import { map } from "rxjs/operators";
 @Injectable({
   providedIn: "root"
 })
@@ -21,7 +20,7 @@ export class AuthService {
     this.postFix = "/od6/public/values?alt=json";
     this.googleSheetsURL = this.preFix + this.sheetID + this.postFix;
 
-    // for POST call
+    // for updating SHEETS with a new row
     this.url =
       "https://script.google.com/macros/s/AKfycbxYt5n0O64M4rCrmKg36qhFmdVggWlGmwrn43Vr09IY5xCUQ3Y/exec";
 
@@ -34,7 +33,7 @@ export class AuthService {
     return this.http.get(this.googleSheetsURL).pipe(map(x => x.json()));
   }
 
-  postData(donation, country, time) {
+  addNewRow(donation, country, time) {
     // To create new row with donation amount, country and time of donation
     return this.http.get(
       "https://script.google.com/macros/s/AKfycbxYt5n0O64M4rCrmKg36qhFmdVggWlGmwrn43Vr09IY5xCUQ3Y/exec?amount=" +

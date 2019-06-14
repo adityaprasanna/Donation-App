@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/auth.service";
 import { Router } from "@angular/router";
+declare var $: any;
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -52,7 +53,7 @@ export class HomeComponent implements OnInit {
 
     if (this.totalAmount < 1000 && num.test(inputAmount) && inputAmount) {
       this.authService
-        .postData(inputAmount, this.clientCountry, this.time)
+        .addNewRow(inputAmount, this.clientCountry, this.time)
         .subscribe(function(data) {});
     } else {
       (<HTMLInputElement>(
