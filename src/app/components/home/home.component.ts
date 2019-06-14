@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/auth.service";
-import { Router } from "@angular/router";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -15,11 +14,8 @@ export class HomeComponent implements OnInit {
   public clientCountry: string;
   public time: number;
 
-  constructor(private authService: AuthService, private router: Router) {
-    // Get client's time of donating
+  constructor(private authService: AuthService) {
     this.getData();
-    const currentTime = new Date();
-    this.time = currentTime.getHours();
   }
 
   getData() {
@@ -45,6 +41,10 @@ export class HomeComponent implements OnInit {
   }
 
   donateButtonClick() {
+    // Get client's time of donating
+    const currentTime = new Date();
+    this.time = currentTime.getHours();
+
     // Check for invalid inputs or empty string
     let inputAmount = (<HTMLInputElement>document.getElementById("amount"))
       .value;
