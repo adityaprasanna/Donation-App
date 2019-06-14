@@ -59,6 +59,9 @@ export class HomeComponent implements OnInit {
         document.getElementById("submit-form")
       )).disabled = true;
       alert("Invalid donation. Please input numbers only.");
+      (<HTMLInputElement>(
+        document.getElementById("submit-form")
+      )).disabled = false;
     }
   }
 
