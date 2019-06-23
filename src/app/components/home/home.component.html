@@ -1,10 +1,10 @@
 <main>
   <div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated" [ngStyle]="{ 'width': progressStatus }">
-      {{ (progressStatus) }}</div>
+      {{ progressStatus }}</div>
     <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-      [ngStyle]="{ 'width': (progressStatusRemaining) }">
-      Remaining Amount {{ (remainingAmount) }} $
+      [ngStyle]="{ 'width': progressStatusRemaining }">
+      Remaining Amount {{ remainingAmount }} $
     </div>
   </div>
   <div class="container-fluid">
@@ -14,7 +14,7 @@
           Every Dollar helps.</h1>
         <form>
           <div class="col-md-2 col-8 mx-auto">
-            <input type="text" id="amount" class="form-control">
+            <input type="text" id="amount" class="form-control" [(ngModel)]="model" name="model">
             <button type="submit" (click)="donateButtonClick()" class="btn btn-primary w-100 my-2"
               id="submit-form">Donate</button>
           </div>
