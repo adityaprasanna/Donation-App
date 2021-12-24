@@ -27,3 +27,5 @@
 - API calls made are stored in auth.service.ts.
 - Components folder contains only one component named 'Home'.
 - SCSS preprocessor for index.html and home.component.html have been used.
+
+- testing github
